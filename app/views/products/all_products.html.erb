@@ -1,10 +1,10 @@
 <h1> All Products </h1>
 
-<% @display_all.each do |display| %>
-	<h2> <b>Product Name:</b> <%= display.name %> </h2>
-	<img src = <%= display.image %> height = "400" width = "500">
+<% @products.each do |product| %>
+	<h2> <b>Product Name:</b> <%= product.name %></h2>
+	<img src = <%= product.image %> class = "custom">
 	<ul>
-		<li><b>Price: </b> <%= display.price %> </li>
-		<li> <b>Description:</b><%= display.description %> </li>
+		<li><b>Price: </b> <%= product.price %> RWF </li>
+		<li> <b>Description:</b><%= product.description %> </li>
 	</ul>	
 <% end %>
