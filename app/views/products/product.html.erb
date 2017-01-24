@@ -1,6 +1,14 @@
-<h2> <b>Product Name:</b> <%= @product.name %></h2>
+<h2> <b>Product Name:</b> <%= @product.name %> </a></h2>
   <img src = <%= @product.image %> class = "custom">
   <ul>
     <li><b>Price: </b> <%= @product.price %> RWF </li>
     <li> <b>Description:</b><%= @product.description %> </li>
   </ul> 
+<div>
+<a href = "/products/<%= @product.id %>/edit"> <input type = "submit" value = "Edit"> </a>
+</div>
+
+<div>
+<%= button_to "delete", @products, :method => :delete %>
+</div>
+

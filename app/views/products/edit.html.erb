@@ -1,0 +1,26 @@
+<%= form_tag"/products/#{@product.id}", method: :patch do %>
+
+  <table>
+    </tr>
+      <td>Name:</td>
+      <td><input type = "text" name = "name" value = "<%= @product.name %>" ></td>
+    </tr>
+
+    <tr>
+      <td>price:</td>
+      <td><input type = "text" name = "price" value = "<%= @product.price %>" > </td>
+    </tr>
+
+    <tr>
+      <td>Description:</td>
+      <td><input type = "text" name = "description" value = "<%= @product.description %>" ></td>
+    </tr>
+    <tr>
+      <td>Image link:</td>
+      <td><input type = "text" name = "image" value = "<%= @product.image %>" ></td>
+    </tr>
+  <table>
+
+  <input type = "submit" name = "submit" value = "update">
+
+<% end %>
