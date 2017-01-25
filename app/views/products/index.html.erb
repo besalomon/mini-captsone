@@ -7,8 +7,8 @@
           <div class="col-md-4">
             <h2><%= link_to product.name, "/products/#{product.id}" %></h2>
             <img src="<%= product.image %>" class="img-responsive">
-            <h2>Ingredients: <%= product.price %></h2>
-            <h2>Prep time: <%= product.description %></h2>
+            <h2>Price: <%= product.price %></h2>
+            <h2>Description: <%= product.description %></h2>
           </div>
         <% end %>
     </div>
