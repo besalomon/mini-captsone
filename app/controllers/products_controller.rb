@@ -4,15 +4,28 @@ class ProductsController < ApplicationController
     if params[:sort]
       @products = Product.all.order(price: params[:sort])
 
+    elsif params[:discount] == "true"
+     
+     @products = Product.where("price < ?", 500000)
+
+    elsif params[:find]
+      @products = Product.where(name: params[:find])
+
     else
 		  @products = Product.all
+
     end
 
 	end
 
   def show
+  if params[:id] == "random"
+    @product = Product.all.sample
+  else
     @product = Product.find_by(id: params[:id])
-    render "product.html.erb"
+
+  end
+  
   end
 
   def new
