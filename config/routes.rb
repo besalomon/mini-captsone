@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/suppliers", to: 'suppliers#index'
 
   get "/suppliers/:id", to: 'suppliers#show'
+  get "/signup", to:'users#new'
+  post "/users", to:'users#create'
 end
