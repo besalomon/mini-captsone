@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 	end
 
   def show
+    @image = Image.find_by(id: params[:id])
   if params[:id] == "random"
     @product = Product.all.sample
   else
