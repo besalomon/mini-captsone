@@ -1,5 +1,11 @@
 <h2> <b>Product Name:</b> <%= @product.name %> </a></h2>
-  <img src = <%= @image.url %> class = "custom">
+  
+<% @product.images.each do |image| %>
+
+  <img src= "<%= image.url%>">
+
+<% end %>
+
   <ul>
     <li><b>Price: </b> <%= @product.price %> RWF </li>
     <li> <b>Description:</b><%= @product.description %> </li>
