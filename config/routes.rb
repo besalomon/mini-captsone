@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/", to: 'products#index'
   get "/products", to: 'products#index'
   get "/products/new", to: 'products#new'
   get "/products/:id", to: 'products#show'
@@ -12,4 +13,12 @@ Rails.application.routes.draw do
   get "/suppliers/:id", to: 'suppliers#show'
   get "/signup", to:'users#new'
   post "/users", to:'users#create'
+  get "/login", to:'sessions#new'
+  post "/login", to:'sessions#create'
+  delete "/logout", to:'sessions#destroy'
+  get "images", to:'images#index'
+  get "images/:id", to:'images#show'
+  get "images/new", to:'images#new'
+  post "images", to:'images#create'
+
 end

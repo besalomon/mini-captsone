@@ -12,12 +12,17 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
       )
     if user.save
-      session[:id] = user.id
+      session[:user_id] = user.id
       flash[:success] = "Successfully Created Account"
       redirect_to '/products'
     else
       flash[:warning] = "Invalid Password or Email"
       redirect_to '/signup'
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redict_to "/login"
   end
 end
