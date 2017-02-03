@@ -21,8 +21,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    session[:user_id] = nil
-    redict_to "/login"
-  end
+
 end
