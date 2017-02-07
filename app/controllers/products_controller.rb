@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
     elsif params[:find]
       @products = Product.where(name: params[:find])
 
+    elsif params[:key]
+      @products = Category.find_by(name:params[:key]).products
     else
 		  @products = Product.all
 
@@ -25,10 +27,15 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
 
   end
-  
   end
 
   def new
+    if session[:user_id]
+    else
+      flash[:warning] = "You must be logged in to create a new product"
+      redirect_to"/login"
+    end
+
   end
 
   def create
