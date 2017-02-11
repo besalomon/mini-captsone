@@ -1,5 +1,8 @@
+
 class ProductsController < ApplicationController
-	def index
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_admin!, only: [:new, :create, :update, :destroy]
+  def index
 
     if params[:sort]
       @products = Product.all.order(price: params[:sort])
@@ -14,11 +17,11 @@ class ProductsController < ApplicationController
     elsif params[:key]
       @products = Category.find_by(name:params[:key]).products
     else
-		  @products = Product.all
+      @products = Product.all
 
     end
 
-	end
+  end
 
   def show
   if params[:id] == "random"

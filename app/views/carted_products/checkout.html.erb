@@ -1,0 +1,57 @@
+<h1>Check Out</h1>
+
+<h2>Below are items on your shopping cart:</h2>
+<div>
+<div class = "col-md-2">
+<div class = "col-md-8">
+
+<table class = "table">
+<tr>
+  <th>
+    Product Name:
+  </th>
+  <th>
+    Quantity:
+  </th>
+  <th>
+    Image
+  </th>
+  <th>
+    Price:
+  </th>
+  <th>
+    subtotal:
+  </th>
+  <th>
+    Tax:
+  </th>
+</tr>
+
+<% @carts.each do |cart| %>
+ <tr>
+  <td>
+   <%= cart.product.name %>
+  </td>
+  <td> 
+   <%= cart.quantity %>
+  </td>
+  <td> 
+   <image src = "<%= cart.product.images.first.url %>" class = "manip">
+  </td>
+  <td>
+   <%= cart.product.price %>
+  </td>
+  <td>
+   <%= cart.product.price * cart.quantity %>
+  </td> 
+  </tr>
+
+<% end %>
+
+</table>
+
+</div>
+
+<%= form_tag"/orders", method: :update do %>
+  <input type = "submit" value="Buy Now">
+<% end %>

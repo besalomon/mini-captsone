@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "images/:id", to:'images#show'
   get "images/new", to:'images#new'
   post "images", to:'images#create'
-
-  post "/orders", to:'orders#create'
-
+  post "/carts", to:'carted_products#create'
+  get "/checkout", to:'carted_products#checkout'
+  post"/orders", to:'orders#update'
 end
